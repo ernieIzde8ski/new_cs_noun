@@ -1,3 +1,5 @@
+*.lua
+
 # editor settings
 .nvim.lua
 .nvimrc

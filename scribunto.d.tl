@@ -1,3 +1,21 @@
+global type FrameArgs = {string | number: string}
+
+local record ExpandTemplateOpts
+    title: string
+    args: {string|number: string}
+end
+
+global type Frame = record
+    args: FrameArgs
+    callParserFunction: function(self: Frame, name: string, ...: any): string
+    expandTemplate: function(self: Frame, opts: ExpandTemplateOpts): any
+    extensionTag: function(self: Frame, name: string, content: string, args: string |
+        FrameArgs)
+    getParent: function(self: Frame): Frame
+    getTitle: function(self: Frame): string
+    -- ...
+end
+
 global record mw
     record text
         decode: function(string: string, decodeNamedEntities?: boolean): string
